@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block header %}
+    {{ station }}
+{% endblock %}
+
+{% block content %}
+    {% include "form.html" %}
+    {% if buses %}
+        {% include "table.html" %}
+    {% endif %}
+{% endblock %}
+{% block scripts %}
+function getData() {
+    $.get('/data/json', { bus_id : {{ bus_id }} })
+        .success(function(data) {
+
+                var $table = $('#table-body');
+                var json = JSON.parse(data);
+                $table.empty();
+                json.forEach(function(bus){
+                    var $row = $('<tr>').appendTo($table);
+                    bus.forEach(function(info){
+                        $('<td>').text(info).appendTo($row);
+                    });
+                });
+            });
+          setTimeout(getData, 5000); 
+          };
+{% endblock %}

@@ -1,0 +1,16 @@
+<table class="main">
+<thead>
+    <th> Bus </th>
+    <th> Destination </th>
+    <th> Time left  </th>
+</thead>
+<tbody id="table-body">
+    {% for bus in buses %}
+    <tr>
+        {% for info in bus %}
+            <td> {{ info }} </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</tbody>
+</table>

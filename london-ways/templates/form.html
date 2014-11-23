@@ -1,0 +1,8 @@
+<form id="stations-form">
+    <select id="stations-select">
+        {% for station in stations %}
+        <option value="{{ station.0 }}">{{ station.1 }}</option>
+        {% endfor %}
+        <input type="submit" value="Search">
+    </select>
+</form>

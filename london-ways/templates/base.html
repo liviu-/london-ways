@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+<div id="container">
+    <h1>
+        {% block header %}
+        {% endblock %}
+    </h1>
+    <div id="content">
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<script>
+{% block scripts %}
+{% endblock %}
+</script>
+</body>
+</html>
