@@ -1,7 +1,8 @@
 import os
 import json
-import redis
 import requests
+
+import redis
 
 from flask import Flask, render_template, request
 
