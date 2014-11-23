@@ -22,11 +22,11 @@ $ git clone https://github.com/liviu-/london-ways
 $ cd london-ways
 $ virtualenv env
 $ source env/bin/activate
-$ pip install -r requirements.txt
-$ cd london-ways
-$ mv /path/to/london-bus.csv .
-$ ./preprocess.py london-bus.csv
-$ python london-ways.py
+(env) $ pip install -r requirements.txt
+(env) $ cd london-ways
+(env) $ mv /path/to/london-bus.csv .
+(env) $ ./preprocess.py london-bus.csv
+(env) $ python london-ways.py
 ```
 
-To test it run `$ python london_ways/tests/tests.py`
+To test it run `(env) $ python london_ways/tests/tests.py`
