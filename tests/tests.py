@@ -5,6 +5,7 @@ import unittest
 
 import fakeredis
 
+# Ummm
 main_package = os.path.join(os.path.dirname(os.path.abspath('.')),
                             os.path.basename(os.path.dirname(
                                 os.path.dirname(os.path.abspath(__file__)))))
