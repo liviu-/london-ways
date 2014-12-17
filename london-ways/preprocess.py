@@ -1,4 +1,4 @@
-#! /usr/env/python
+#!/usr/bin/env python
 """Proces csv file and store key-value pair of columns in redis"""
 
 import csv
