@@ -9,6 +9,8 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 conn = redis.Redis('localhost')
 
+PORT = 5000
+
 # Constants because the data doesn't get updated
 # dynamically and it's required in a bunch of places
 KEYS = conn.keys()
@@ -17,9 +19,11 @@ STATIONS = list(zip([key.decode('utf-8') for key in KEYS],
                     [bstation.decode('utf-8').title() for bstation
                      in VALUES]))
 
+
 @app.route("/")
 def index():
     return render_template('index.html', stations=STATIONS)
+
 
 @app.route("/<int:bus_id>")
 def get_bus(bus_id):
@@ -27,6 +31,7 @@ def get_bus(bus_id):
     station = conn.get(bus_id).decode('utf-8').title()
     return render_template('bus_station.html', buses=buses, bus_id=bus_id,
                            station=station, stations=STATIONS)
+
 
 @app.route("/data/json")
 def get_info(bus_id=None, is_ajax=True):
@@ -47,7 +52,8 @@ def get_info(bus_id=None, is_ajax=True):
         return json.dumps(bus_data)
     return bus_data
 
+
 if __name__ == "__main__":
     app.debug = True
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', PORT))
     app.run(host='0.0.0.0', port=port)
